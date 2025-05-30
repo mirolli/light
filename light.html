@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>悬</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #050505;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scene {
+      position: relative;
+      width: 200px;
+      height: 400px;
+    }
+
+    .cord {
+      width: 4px;
+      height: 150px;
+      background-color: #111;
+      margin: 0 auto;
+    }
+
+    .pivot {
+      position: absolute;
+      top: 150px; /* 固定在绳子底部 */
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: top center; /* 以顶部为旋转点 */
+      animation: sway 6s infinite ease-in-out;
+    }
+
+    .filament {
+      width: 14px;
+      height: 60px;
+      background: linear-gradient(to bottom, #550000, #220000);
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(255, 80, 50, 0.25);
+      animation: glow 5s infinite ease-in-out;
+    }
+
+    @keyframes sway {
+      0% { transform: translateX(-50%) rotate(0deg); }
+      25% { transform: translateX(-50%) rotate(4deg); }
+      50% { transform: translateX(-50%) rotate(-5deg); }
+      75% { transform: translateX(-50%) rotate(3deg); }
+      100% { transform: translateX(-50%) rotate(0deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(255, 80, 50, 0.2); }
+      50% { box-shadow: 0 0 15px rgba(255, 80, 50, 0.4); }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="cord"></div>
+    <div class="pivot">
+      <div class="filament"></div>
+    </div>
+  </div>
+</body>
+</html>
